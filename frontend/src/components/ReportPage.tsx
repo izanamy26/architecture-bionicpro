@@ -19,9 +19,12 @@ const ReportPage: React.FC = () => {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/reports`, {
         headers: {
           'Authorization': `Bearer ${keycloak.token}`
-        }
+        },
+        mode: 'no-cors'
       });
 
+      console.log('keycloak.token: ', keycloak.token);
+      console.log('Rsponse: ', response);
       
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
